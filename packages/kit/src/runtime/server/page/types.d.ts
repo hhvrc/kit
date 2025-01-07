@@ -27,6 +27,7 @@ export interface CspConfig {
 
 export interface CspOpts {
 	prerender: boolean;
+	additionalDirectives?: CspDirectives;
 }
 
 export interface Cookie {

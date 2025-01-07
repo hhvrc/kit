@@ -338,8 +338,11 @@ export class Csp {
 	 * @param {import('./types.js').CspConfig} config
 	 * @param {import('./types.js').CspOpts} opts
 	 */
-	constructor({ mode, directives, reportOnly }, { prerender }) {
+	constructor({ mode, directives, reportOnly }, { prerender, additionalDirectives }) {
 		const use_hashes = mode === 'hash' || (mode === 'auto' && prerender);
+
+		// TODO: Merge additionalDirectives into directives
+
 		this.csp_provider = new CspProvider(use_hashes, directives, this.nonce);
 		this.report_only_provider = new CspReportOnlyProvider(use_hashes, reportOnly, this.nonce);
 	}

@@ -214,7 +214,8 @@ export async function render_response({
 	let body = rendered.html;
 
 	const csp = new Csp(options.csp, {
-		prerender: !!state.prerendering
+		prerender: !!state.prerendering,
+		additionalDirectives: event.additionalCspDirectives
 	});
 
 	/** @param {string} path */
